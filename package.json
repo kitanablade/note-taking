@@ -1,14 +1,24 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Challenge 11: Use express to connect the front and back-ends for a note taking app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "express": "^4.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitanablade/note-taking.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kitanablade/note-taking/issues"
+  },
+  "homepage": "https://github.com/kitanablade/note-taking#readme"
 }
