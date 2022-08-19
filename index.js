@@ -33,7 +33,7 @@ app.post("/api/notes", (req, res) => {
   const newNote = {
     title: req.body.title,
     text: req.body.text,
-    note_id: uuidv4(),
+    id: uuidv4(),
   };
   fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
@@ -56,7 +56,7 @@ app.post("/api/notes", (req, res) => {
   });
 });
 
-app.delete("/api/notes/:noteId", (req, res) => {
+app.delete("/api/notes/:id", (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
     if (err) {
       throw err;
@@ -65,21 +65,21 @@ app.delete("/api/notes/:noteId", (req, res) => {
       //res.json(notesList);
       for (let i = 0; i < notesList.length; i++) {
         const note = notesList[i];
-        if (note.note_id == req.params.noteId) {
-            console.log(note.note_id);
+        if (note.id == req.params.id) {
+          console.log(note.id);
           notesList.splice(i, 1);
         }
-    }
-        fs.writeFile(
-            "./db/db.json",
-            JSON.stringify(notesList, null, 4),
-            (err, data) => {
-              if (err) {
-                throw err;
-              }
-                 res.json(notesList);
-            }
-          );
+      }
+      fs.writeFile(
+        "./db/db.json",
+        JSON.stringify(notesList, null, 4),
+        (err, data) => {
+          if (err) {
+            throw err;
+          }
+          res.json(notesList);
+        }
+      );
     }
   });
 });
